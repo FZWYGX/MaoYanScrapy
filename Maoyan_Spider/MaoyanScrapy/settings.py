@@ -95,13 +95,13 @@ PROXY_URL = 'http://localhost:5555/random'
 MONGODB_HOST = 'localhost'  # 本地数据库
 MONGODB_PORT = '27017'  # 数据库端口
 MONGODB_URI = 'mongodb://{}:{}'.format(MONGODB_HOST, MONGODB_PORT)
-MONGODB_DATABASE = 'maoyan'  # 数据库名字
+MONGODB_DATABASE = 'Maoyan'  # 数据库名字
 
-# SCHEDULER = "scrapy_redis.scheduler.Scheduler"  # 必有项：更改去重对列
-#
-# # Ensure all spiders share same duplicates filter through redis.
-# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"  # 必有项：利用Redis去重
-#
-# SCHEDULER_PERSIST = True
-#
-# REDIS_URL = 'redis://127.0.0.1:6379'  # 配置连接
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"  # 必有项：更改去重对列
+
+# Ensure all spiders share same duplicates filter through redis.
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"  # 必有项：利用Redis去重
+
+SCHEDULER_PERSIST = True
+
+REDIS_URL = 'redis://127.0.0.1:6379'  # 配置连接

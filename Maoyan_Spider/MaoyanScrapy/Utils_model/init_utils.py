@@ -1,4 +1,5 @@
 from scrapy.http import Request
+import scrapy.dupefilters
 
 
 def init_add_request(spider, url):

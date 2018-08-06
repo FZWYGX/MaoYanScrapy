@@ -25,7 +25,7 @@ TESTER_CYCLE = 45
 GETTER_CYCLE = 240
 
 # 测试API，建议抓哪个网站测哪个
-TEST_URL = 'https://car.autohome.com.cn/pic/index.html'
+TEST_URL = 'http://maoyan.com/films'
 
 # API配置
 API_HOST = '0.0.0.0'
