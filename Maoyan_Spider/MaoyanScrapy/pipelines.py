@@ -8,7 +8,7 @@ from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 from traceback import format_exc
 from .items import *
-from .Utils_model.init_utils import init_add_request
+
 
 
 class MaoyanscrapyPipeline(object):
@@ -23,16 +23,14 @@ class MaoyanscrapyPipeline(object):
     def from_crawler(cls, crawler):
         return cls(
             mongo_uri=crawler.settings.get('MONGODB_URI'),
-            mongo_db=crawler.settings.get('MONGODB_DATABASE')
+            mongo_db=crawler.settings.get('MONGODB_DATABASE', 'items'),
         )
 
     def open_spider(self, spider):
         self.client = MongoClient(self.mongo_uri)
         self.db = self.client[self.mongo_db]
         self.db['dianying'].ensure_index('url', unique=True)
-        items = self.db['dianying'].find({})
-        for item in items:
-            init_add_request(spider, item['url'])
+
 
     def close_spider(self, spider):
         self.client.close()
